@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+    <!--    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputText value="İşlem no giriniz:"/>
+            <h:inputText value="#{deneme.islemno}"/>
+            
+           
+            <h:commandButton value="GÖNDER" action="#{deneme.vtarihGüncelle()}"/> 
+           
+                
+            
+        </h:panelGrid>
+        </h:form>-->
+    <div align="center">
+        <h:form id="growl">
+       
+            
+            <p:fieldset legend="İşlem Teslim"  style="margin-bottom:20px">
+        <h:panelGrid columns="2" cellpadding="5" id="growl">
+            <p:outputLabel  value="İşlem no giriniz:" />
+           <p:inputText  value="#{deneme.islemno}" />
+       
+     
+       
+           
+       <p:commandButton value="GÖNDER" update="growl"  action="#{deneme.vtarihGüncelle()}" style="margin-right:20px;" styleClass="ui-priority-primary" />
+        </h:panelGrid>
+    </p:fieldset>
+            
+            
+            
+        </h:form>
+    </div>
+        
+    </h:body>
+</html>

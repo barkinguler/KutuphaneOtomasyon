@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <style>
+        ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li span, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li span:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content span {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content span:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+        <script>
+            
+           function yap(deger){
+              var tmp;
+ if(deger===1){
+      tmp="secured/islemkayit.xhtml";
+  
+        
+        }
+  else if(deger===2){
+      tmp="Ogrencikayit.xhtml";}
+  else if(deger===3){
+      tmp="secured/Kitapkayit.xhtml";}
+  else if(deger===4){
+      tmp="secured/yazarkayit.xhtml";}
+  else if(deger===5){
+      tmp="secured/turkayit.xhtml";}
+  else if(deger===6){
+      tmp="secured/islemliste.xhtml";}
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    //<![CDATA[
+    if (this.readyState === 4 && this.status === 200)  //]]> {
+      document.getElementById("demo").innerHTML =
+      this.responseText;
+    
+  };
+            xhttp.open("GET","secured/Ogrencikayit.xhtml", true);
+  xhttp.send();   
+           }
+            
+            
+        </script>
+        
+    </head>
+    <h:body>  
+<ul>
+  <li><span style="font-family:bold;cursor: pointer" onclick="yap(6)">LİSTELE</span></li>
+  <li class="dropdown">
+    <span style="font-family:bold;cursor: pointer" class="dropbtn">GÜNCELLE</span>
+    <div class="dropdown-content">
+      <span style="font-family:bold;cursor: pointer" >İşlem güncelle</span>
+      <span style="font-family:bold;cursor: pointer" >Öğrenci güncelle</span>
+      <span style="font-family:bold;cursor: pointer">Kitap güncelle</span>
+      <span style="font-family:bold;cursor: pointer">Yazar güncelle</span>
+      <span style="font-family:bold;cursor: pointer">Tür güncelle</span>
+    </div>
+  </li>
+  <li class="dropdown">
+    <span style="font-family:bold;cursor: pointer" class="dropbtn">SİLME</span>
+    <div class="dropdown-content">
+      <span style="font-family:bold;cursor: pointer">İşlem sil</span>
+      <span style="font-family:bold;cursor: pointer">Öğrenci sil</span>
+      <span style="font-family:bold;cursor: pointer">Kitap sil</span>
+      <span style="font-family:bold;cursor: pointer">Yazar sil</span>
+      <span style="font-family:bold;cursor: pointer">Tür sil</span>
+    </div>
+  </li>
+  <li class="dropdown">
+    <span style="font-family:bold;cursor: pointer" class="dropbtn">EKLE</span>
+    <div class="dropdown-content">
+      <span style="font-family:bold;cursor: pointer" onclick="yap(1)">İşlem ekle</span>
+      <span style="font-family:bold;cursor: pointer" onclick="yap(2)">Öğrenci ekle</span>
+      <span style="font-family:bold;cursor: pointer" onclick="yap(3)">Kitap ekle</span>
+      <span style="font-family:bold;cursor: pointer" onclick="yap(4)">Yazar ekle</span>
+      <span style="font-family:bold;cursor: pointer" onclick="yap(5)">Tür ekle</span>
+    </div>
+  </li>
+  <li style="float:right"><span>ÇIKIŞ</span></li>
+</ul>
+
+<h3>Dropdown Menu inside a Navigation Bar</h3>
+<div id="demo" align="center"></div>
+<h:form>
+    
+    <p:commandButton value="Kullanıcı Giriş" ajax="true" action="#{login.yap()}"
+                                  />
+    
+</h:form>
+  
+ <a href="{login.doLogin(0)}">asdsad</a>
+    </h:body>
+</html>

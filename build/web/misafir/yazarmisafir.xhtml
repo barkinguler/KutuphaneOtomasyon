@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Veritabanından Kayıt Çekme</title>
+     
+        
+        <style type="text/css">
+        .order-table{   
+	border-collapse:collapse;
+}
+
+.order-table-header{
+	text-align:center;
+	background:none repeat scroll 0 0 #E5E5E5;
+	border-bottom:1px solid #BBBBBB;
+	padding:16px;
+}
+
+.order-table-odd-row{
+	text-align:center;
+	background:none repeat scroll 0 0 #FFFFFFF;
+	border-top:1px solid #BBBBBB;
+}
+
+.order-table-even-row{
+	text-align:center;
+	background:none repeat scroll 0 0 #F9F9F9;
+	border-top:1px solid #BBBBBB;
+}
+        
+    </style>
+    </h:head>
+    <h:body>
+        
+       
+        
+        
+        
+        
+                <style type="text/css">
+    .value {
+        font-weight: bold;
+    }
+     
+    .ui-datatable {
+        margin-bottom: 25px
+    }
+     
+    .ui-datatable .ui-datatable-footer {
+        text-align:left;
+    }
+     
+    .ui-datalist ul {
+        padding: 0 0 0 10px;
+        margin: 5px 0;
+    }
+     
+    .ui-datatable .ui-button-icon-only .ui-button-text {
+        padding: 0;
+        line-height: 1.2;
+    }
+    .ui-datatable-empty-message {
+    display: none;
+    .ui-dialog {
+    width: auto !important;
+}
+}
+</style>
+                
+        
+            
+        
+     
+        
+         
+        
+        
+        
+        
+        
+        
+        <div align="center" style="position:fixed;margin-left: 25%;margin-top: 0%;margin-right: 25%;">
+
+<h:form id="form">
+    <p:growl id="msgs" showDetail="true"  />
+ 
+    <p:dataTable id="basicDT" var="car" value="#{yazarCek.sorguSonucumusteri}" scrollable="true">
+        
+        <f:facet name="header">
+            YAZARLAR
+        </f:facet>
+        
+        
+        
+ 
+        <p:column  headerText="Yazar No" sortBy="#{car.yazarno}" >
+            <h:outputText value="#{car.yazarno}" />
+        </p:column>
+        <p:column filterBy="#{car.yazarad}" headerText="Yazar Ad" filterMatchMode="contains" sortBy="#{car.yazarad}" >
+            <h:outputText value="#{car.yazarad}" />
+        </p:column>
+ 
+          <p:column filterBy="#{car.yazarsoyad}" headerText="Yazar Soyad"  filterMatchMode="contains" sortBy="#{car.yazarsoyad}">
+            <h:outputText value="#{car.yazarsoyad}" />
+        </p:column>
+        
+       
+       
+        <p:column style="width:105px;text-align: left">
+             <p:commandButton update=":form:carDetail" value="Detay" oncomplete="PF('carDialog').show()" icon="pi pi-search" title="View">
+                <f:setPropertyActionListener value="#{car}" target="#{yazarCek.selectedCar}" />
+            </p:commandButton>
+        </p:column>
+    </p:dataTable>
+    
+    <p:dialog header="Yazar Detay" widgetVar="carDialog"  modal="false" position="center center" onShow="PF('carDialog').initPosition()">
+        <p:outputPanel id="carDetail" style="text-align:center;">
+            <p:panelGrid  columns="2" rendered="#{not empty yazarCek.sorguSonucumusteri2}" columnClasses="label,value">
+                <f:facet name="header">
+                     
+                </f:facet>
+                 
+                
+                 <p:dataTable id="basicDTT" var="car" value="#{yazarCek.sorguSonucumusteri2}">
+        
+        
+        
+        
+        
+ 
+        <p:column  headerText="Yazar Ad"  >
+            <h:outputText value="#{car.kitapadi}" />
+        </p:column>
+ 
+          <p:column  headerText="Yazar Soyad"  filterMatchMode="contains">
+            <h:outputText value="#{car.turadi}" />
+        </p:column>
+            
+        
+       
+       
+        
+    </p:dataTable>
+                
+                
+                
+            </p:panelGrid>
+        </p:outputPanel>
+    </p:dialog>
+    
+   
+     
+ 
+    
+    </h:form>
+ </div>   
+        
+         
+    </h:body>
+</html>
+

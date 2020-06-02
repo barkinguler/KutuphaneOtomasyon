@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+    
+
+    
+<body>
+<script>
+    function registerListeners(){
+        /*document.getElementById("islem").addEventListener("click", function() {
+  loadDoc();},false);*/
+        document.getElementById("islem").addEventListener("click",function(){loadDoc(1);},false);
+        document.getElementById("ogrenci").addEventListener("click",function(){loadDoc(2);},false);
+        document.getElementById("kitap").addEventListener("click",function(){loadDoc(3);},false);
+        document.getElementById("yazar").addEventListener("click",function(){loadDoc(4);},false);
+        document.getElementById("tur").addEventListener("click",function(){loadDoc(5);},false);
+        
+
+        }
+
+function loadDoc(deger) {
+    
+  var tmp;  
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState === 4 ) {
+        if(this.status === 200){
+      document.getElementById("demo").innerHTML =
+      this.responseText;}
+    }
+  };
+  switch(deger){
+  case 1:
+      tmp="http://localhost:8081/Kutuphane/islemkayit.xhtml";
+      break;
+  case 2:
+      tmp="http://localhost:8081/Kutuphane/index.xhtml";
+      break;
+      case 3:
+      tmp="http://localhost:8081/Kutuphane/Kitapkayit.html";
+      break;
+   case 4:
+      tmp="http://localhost:8081/Kutuphane/yazarkayit.html";
+      break;
+   case 5:
+      tmp="http://localhost:8081/Kutuphane/turkayit.html";
+      break;
+    
+      
+  }
+      
+  xhttp.open("GET",tmp, true);
+  xhttp.send();
+}
+window.addEventListener( "load", registerListeners, false );
+</script>
+ <select>
+<option  id="islem">İşlem Kayıt</option>
+<option id="ogrenci">Öğrenci Kayıt</option>
+<option id="kitap">Kitap Kayıt</option>
+<option id="yazar">Yazar Kayıt</option>
+<option id="tur">Tür kayıt</option>
+
+</select>
+
+<div id="demo"><p>Username: <input type="text" name="uname" /></p>
+
+<p>How would you rate your skill in programming?<br />
+    
+
+  <input  type="radio" name="skill" value="beg" />Beginner
+
+  <input type="radio" name="skill" value="int" />Intermediate
+
+  <input type="radio" name="skill" value="adv" />Advanced
+
+  <input type="radio" name="skill" value="sup" />Super-hacker</p>
+
+<p>How many hours do you spend programming each week?<br />
+
+  <input type="radio" name="hours" value="beg" />0-10<br />
+
+  <input type="radio" name="hours" value="int" checked="checked" />11-20<br />
+
+  <input type="radio" name="hours" value="adv" />21-30<br />
+
+  <input type="radio" name="hours" value="sup" />30+</p></div>
+
+</body>
+</html>

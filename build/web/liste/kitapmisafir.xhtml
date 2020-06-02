@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Veritabanından Kayıt Çekme</title>
+     
+        
+        <style type="text/css">
+            
+            .ui-datatable-empty-message {
+    display: none;
+}
+        .order-table{   
+	border-collapse:collapse;
+}
+
+.order-table-header{
+	text-align:center;
+	background:none repeat scroll 0 0 #E5E5E5;
+	border-bottom:1px solid #BBBBBB;
+	padding:16px;
+}
+
+.order-table-odd-row{
+	text-align:center;
+	background:none repeat scroll 0 0 #FFFFFF;
+	border-top:1px solid #BBBBBB;
+}
+
+.order-table-even-row{
+	text-align:center;
+	background:none repeat scroll 0 0 #F9F9F9;
+	border-top:1px solid #BBBBBB;
+}
+        
+    </style>
+    </h:head>
+    <h:body>
+        
+        <!-- <div style="position:fixed;margin-left: 30%;margin-top: 0%;margin-right: 30%;">-->
+              
+            
+       <!-- </div>-->
+        
+        
+        <div align="left" style="position:fixed;margin-left: 0%;margin-top: 0%;margin-right: 70%;">
+              <h:form id="kitap">
+        
+           
+           
+           <p:dataTable var="car" id="growl" value="#{kitapÇek.sorguSonucu}">
+    <f:facet name="header">
+        <p:panelGrid columns="1" >
+         <h:outputText value="Kitap adını giriniz"/>
+            <p:inputText  value="#{kitapÇek.kitapadi}" />
+   <p:commandButton value="Ara" id="ajax" update="growl" action="#{kitapÇek.kitapkayit}" style="font-size: 75%;margin-right:20px;" styleClass="ui-priority-primary" />
+</p:panelGrid>
+    </f:facet>
+              
+      <p:column headerText="Kitap No">
+        <h:outputText value="#{car.kitapno}" />
+    </p:column>         
+      <p:column headerText="Kitap Ad">
+        <h:outputText value="#{car.kitapadi}" />
+    </p:column>
+ 
+    <p:column headerText="Sayfa Sayı">
+        <h:outputText value="#{car.sayfasayisi}" />
+    </p:column>
+ 
+    <p:column headerText="Puan">
+        <h:outputText value="#{car.puan}" />
+    </p:column>
+ 
+    
+</p:dataTable>
+           
+           
+           
+           
+            
+            
+          
+             
+            
+       
+        </h:form>
+            
+        </div>
+        <div align="right" style="position:fixed;margin-left: 40%;margin-top: 0%;margin-right: 25%;">
+            
+        <h:form>
+             <p:dataTable var="car" id="growl" value="#{kitapÇek.sorguSonucu2}">
+                  <f:facet name="header">
+        Mevcut Kitaplar
+    </f:facet>
+      <p:column headerText="Kitap No">
+        <h:outputText value="#{car.kitapno}" />
+    </p:column>           
+                 
+    <p:column headerText="Kitap Ad">
+        <h:outputText value="#{car.kitapadi}" />
+    </p:column>
+ 
+    <p:column headerText="Sayfa Sayı">
+        <h:outputText value="#{car.sayfasayisi}" />
+    </p:column>
+ 
+    <p:column headerText="Puan">
+        <h:outputText value="#{car.puan}" />
+    </p:column>
+ 
+    
+</p:dataTable>
+            
+          
+        </h:form></div>
+        
+         
+    </h:body>
+</html>

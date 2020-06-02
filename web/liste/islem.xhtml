@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <style>
+         
+            .ui-datatable-empty-message {
+    display: none;
+}
+            
+        </style>
+    </h:head>
+    <h:body>
+        
+       <div align="right" style="position:fixed;margin-left: 20%;margin-top: 0%;margin-right: 20%;">
+            
+        <h:form>
+             <p:dataTable var="car" id="growl" value="#{islemCek.sorguSonucu}">
+    <p:column headerText="İşlem No" filterBy="#{car.islemno}"   filterMatchMode="contains">
+        <h:outputText value="#{car.islemno}" />
+    </p:column>
+ 
+    <p:column headerText="Öğrenci No" filterBy="#{car.ogrno}"   filterMatchMode="contains">
+        <h:outputText value="#{car.ogrno}" />
+    </p:column>
+ 
+    <p:column headerText="Kitap No" filterBy="#{car.kitapno}"   filterMatchMode="contains">
+        <h:outputText value="#{car.kitapno}" />
+    </p:column>
+        
+    <p:column headerText="Kitap Ad" filterBy="#{car.kitapadi}"   filterMatchMode="contains">
+        <h:outputText value="#{car.kitapadi}" />
+    </p:column>
+      <p:column headerText="Alınış Tarihi" filterBy="#{car.atarih}"   filterMatchMode="contains">
+        <h:outputText value="#{car.atarih}" />
+    </p:column>
+      <p:column headerText="Veriliş Tarihi" filterBy="#{car.vtarih}"   filterMatchMode="contains">
+        <h:outputText value="#{car.vtarih}" />
+    </p:column>
+      <p:column headerText="Teslim" filterBy="#{car.teslim}"   filterMatchMode="contains">
+        <h:outputText value="#{car.teslim}" />
+    </p:column>
+    
+</p:dataTable>
+            
+          
+        </h:form></div>
+        
+        
+    </h:body>
+</html>
