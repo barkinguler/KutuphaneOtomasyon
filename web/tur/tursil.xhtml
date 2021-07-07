@@ -10,35 +10,32 @@ and open the template in the editor.
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </h:head>
-    <h:body>
-      
-        
-        
-         <div align="center">
+<h:head>
+    <title>TODO supply a title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</h:head>
+<h:body>
+
+
+    <div align="center">
         <h:form id="growl">
-       
-            
-            <p:fieldset legend="Tür Sil"  style="margin-bottom:20px">
-        <h:panelGrid columns="2" cellpadding="5" id="growl">
-            <p:outputLabel  value="Tür no giriniz" />
-           <p:inputText  value="#{deneme.turno}" />
-     
-     
-       
-           
-       <p:commandButton value="GÖNDER" update="growl"  action="#{deneme.turSil()}" style="margin-right:20px;" styleClass="ui-priority-primary" />
-        </h:panelGrid>
-    </p:fieldset>
-            
-            
-            
+
+
+            <p:fieldset legend="Tür Sil" style="margin-bottom:20px">
+                <h:panelGrid columns="2" cellpadding="5" id="growl">
+                    <p:outputLabel value="Tür no giriniz"/>
+                    <p:inputText value="#{deneme.turno}"/>
+
+
+                    <p:commandButton value="GÖNDER" update="growl" action="#{deneme.turSil()}"
+                                     style="margin-right:20px;" styleClass="ui-priority-primary"/>
+                </h:panelGrid>
+            </p:fieldset>
+
+
         </h:form>
-        </div>
-        
-        
-    </h:body>
+    </div>
+
+
+</h:body>
 </html>

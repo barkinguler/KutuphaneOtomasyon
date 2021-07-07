@@ -10,184 +10,199 @@ and open the template in the editor.
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <style>
-                 .myCustomStyle {
-		border-width:1px;
-		border-color: #000000;
-		border-style: solid;
-		text-align: center;
-		font-weight: bold;
-		background: red;
-		color: #FFFFFF;
-		width: 100%;
-                font-family:bold;cursor: pointer
-}
-                   .order-table{   
-	border-collapse:collapse;
-}
-
-.order-table-header{
-	text-align:center;
-	background:none repeat scroll 0 0 #E5E5E5;
-	border-bottom:1px solid #BBBBBB;
-	padding:16px;
-}
-
-.order-table-odd-row{
-	text-align:center;
-	background:none repeat scroll 0 0 #FFFFFFF;
-	border-top:1px solid #BBBBBB;
-}
-
-.order-table-even-row{
-	text-align:center;
-	background:none repeat scroll 0 0 #F9F9F9;
-	border-top:1px solid #BBBBBB;
-}
-        ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-li {
-  float: left;
-}
-
-li span, .dropbtn {
-  display: inline-block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li span:hover, .dropdown:hover .dropbtn {
-  background-color: red;
-}
-
-li.dropdown {
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: red;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content span {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.dropdown-content span:hover {background-color: #f1f1f1;}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-</style>
-        
-
-        <script>
-            
-           function yap(deger){
-               var tmp;
- if(deger===1){
-      tmp="türmisafir.xhtml";
-  
-        
+<h:head>
+    <title>TODO supply a title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
+        .myCustomStyle {
+            border-width: 1px;
+            border-color: #000000;
+            border-style: solid;
+            text-align: center;
+            font-weight: bold;
+            background: red;
+            color: #FFFFFF;
+            width: 100%;
+            font-family: bold;
+            cursor: pointer
         }
- else if(deger===2){
-      
-      tmp="kitapmisafir.xhtml";
-      }
-  else if(deger===3){
-      tmp="secured/Kitapkayit.xhtml";}
-  else if(deger===4){
-      tmp="secured/yazarkayit.xhtml";}
-  else if(deger===5){
-      tmp="secured/turkayit.xhtml";}
-  else if(deger===6){
-      tmp="secured/islemliste.xhtml";}
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    //<![CDATA[
-    if (this.readyState === 4 && this.status === 200)  //]]> {
-      document.getElementById("demo1").innerHTML =
-      this.responseText;
-    
-  };
-            xhttp.open("GET",tmp, true);
-  xhttp.send();   
-           }
-            
-            
-        </script>
-        
-    </h:head>
-    <h:body>  
-<ul>
-            <li><span style="font-family:bold;cursor: pointer" onclick="yap(6)">
+
+        .order-table {
+            border-collapse: collapse;
+        }
+
+        .order-table-header {
+            text-align: center;
+            background: none repeat scroll 0 0 #E5E5E5;
+            border-bottom: 1px solid #BBBBBB;
+            padding: 16px;
+        }
+
+        .order-table-odd-row {
+            text-align: center;
+            background: none repeat scroll 0 0 #FFFFFFF;
+            border-top: 1px solid #BBBBBB;
+        }
+
+        .order-table-even-row {
+            text-align: center;
+            background: none repeat scroll 0 0 #F9F9F9;
+            border-top: 1px solid #BBBBBB;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li span, .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li span:hover, .dropdown:hover .dropbtn {
+            background-color: red;
+        }
+
+        li.dropdown {
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: red;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content span {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content span:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+
+
+    <script>
+
+        function yap(deger) {
+            var tmp;
+            if (deger === 1) {
+                tmp = "türmisafir.xhtml";
+
+
+            } else if (deger === 2) {
+
+                tmp = "kitapmisafir.xhtml";
+            } else if (deger === 3) {
+                tmp = "secured/Kitapkayit.xhtml";
+            } else if (deger === 4) {
+                tmp = "secured/yazarkayit.xhtml";
+            } else if (deger === 5) {
+                tmp = "secured/turkayit.xhtml";
+            } else if (deger === 6) {
+                tmp = "secured/islemliste.xhtml";
+            }
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                //<![CDATA[
+                if (this.readyState === 4 && this.status === 200)  //]]> {
+                    document.getElementById("demo1").innerHTML =
+                        this.responseText;
+
+            };
+            xhttp.open("GET", tmp, true);
+            xhttp.send();
+        }
+
+
+    </script>
+
+</h:head>
+<h:body>
+    <ul>
+        <li><span style="font-family:bold;cursor: pointer" onclick="yap(6)">
       
                   <h:form>   
     
      
-    <h:commandLink id="ajax" value="Anasayfa"  action="../index.xhtml" style="color:white;text-decoration:none; margin-right:20px;margin-bottom: 20px;">
+    <h:commandLink id="ajax" value="Anasayfa" action="../index.xhtml"
+                   style="color:white;text-decoration:none; margin-right:20px;margin-bottom: 20px;">
         
     </h:commandLink></h:form>
                                        
                     
         </span></li>
-  <li class="dropdown">
+        <li class="dropdown">
       <span style="font-family:bold;cursor: pointer" class="dropbtn">
           
           
                   <h:form>   
-    <p:growl id="growl" life="2000" />
+    <p:growl id="growl" life="2000"/>
      
-    <p:commandLink id="ajax" update="growl" style="color:white;text-decoration:none; margin-right:20px;margin-bottom: 20px;">
-        <h:outputText value="Kitap Detay" />
+    <p:commandLink id="ajax" update="growl"
+                   style="color:white;text-decoration:none; margin-right:20px;margin-bottom: 20px;">
+        <h:outputText value="Kitap Detay"/>
     </p:commandLink></h:form>
           
           
       </span>
-    <div class="dropdown-content">
-        <div style="height: 30px">
+            <div class="dropdown-content">
+                <div style="height: 30px">
                   <span align="center" style="height: 30px">    <h:form>   
     
      
-                           <p:commandLink id="ajax"   action="#{deneme.yapislemlistem}" style="color:black;text-decoration:none; margin-right:20px;margin-bottom: 20px;">
+                           <p:commandLink id="ajax" action="#{deneme.yapislemlistem}"
+                                          style="color:black;text-decoration:none; margin-right:20px;margin-bottom: 20px;">
                                <center>
-                                   <h:outputText value="Kitap Detay" /></center>
+                                   <h:outputText value="Kitap Detay"/></center>
                            </p:commandLink></h:form></span></div>
-        <h:form><h:commandButton  action="#{deneme.yapislemlistem}" class="myCustomStyle" value="İŞLEM" /></h:form>
-        <h:form><h:commandButton  action="#{deneme.yap()}" class="myCustomStyle" value="TÜR" /></h:form>
-      <h:form><h:commandButton  action="#{deneme.yapyazar}" class="myCustomStyle" value="YAZAR" /></h:form>
-      <h:form><h:commandButton  action="#{deneme.yapkitap}" class="myCustomStyle" value="KİTAP" /></h:form>
-       
+                <h:form>
+                    <h:commandButton action="#{deneme.yapislemlistem}" class="myCustomStyle" value="İŞLEM"/>
+                </h:form>
+                <h:form>
+                    <h:commandButton action="#{deneme.yap()}" class="myCustomStyle" value="TÜR"/>
+                </h:form>
+                <h:form>
+                    <h:commandButton action="#{deneme.yapyazar}" class="myCustomStyle" value="YAZAR"/>
+                </h:form>
+                <h:form>
+                    <h:commandButton action="#{deneme.yapkitap}" class="myCustomStyle" value="KİTAP"/>
+                </h:form>
+
+            </div>
+        </li>
+
+
+    </ul>
+
+    <ui:param name="c" value="#{deneme.adres}"></ui:param>
+    <div align="center">
+        <iframe width="100%" height="900px" src="#{c}"/>
     </div>
-  </li>
-  
-
-</ul>
-       
-<ui:param name="c" value="#{deneme.adres}"></ui:param>
-<div align="center">
- <iframe width="100%" height="900px" src="#{c}"/>
-</div>
 
 
-    </h:body>
+</h:body>
 </html>

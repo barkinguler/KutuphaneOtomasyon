@@ -10,44 +10,42 @@ and open the template in the editor.
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <style>
-             .ui-menuitem-text{color:white;}
- 
-        .topcorner{
-   position:absolute;
-   
-   right:0;
-  }
-        </style>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </h:head>
-    <h:body>
-        
-     
-        <h:form id="aa">
-             <p:growl id="messages" showDetail="false"/>
-<p:megaMenu  style="margin-top:20px;background: black">
-  
- 
-    <p:menuitem value="İŞLEMLERİM" update="aa" action="#{deneme.yapislemlistem}" />
-    <p:menuitem value="KİTAPLAR" update="aa" action="#{deneme.yapkitap}" />
-    <p:menuitem value="TÜRLER" update="aa" action="#{deneme.yap}" />
-    <p:menuitem value="YAZARLAR" update="aa" action="#{deneme.yapyazar}" />
- 
-    
- 
-    
-    
-    <p:menuitem value="ÇIKIŞ" styleClass="topcorner" action="#{login.ogrencicikis}"   url="index.xhtml"  />
-</p:megaMenu>
-             <ui:param name="c" id="k" value="#{deneme.adres}"></ui:param>
-             <div align="center">
- <iframe width="100%" height="900px" src="#{c}"/>
-</div>
-        </h:form>
-        
-        
+<h:head>
+    <style>
+        .ui-menuitem-text {
+            color: white;
+        }
 
-    </h:body>
+        .topcorner {
+            position: absolute;
+
+            right: 0;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</h:head>
+<h:body>
+
+
+    <h:form id="aa">
+        <p:growl id="messages" showDetail="false"/>
+        <p:megaMenu style="margin-top:20px;background: black">
+
+
+            <p:menuitem value="İŞLEMLERİM" update="aa" action="#{deneme.yapislemlistem}"/>
+            <p:menuitem value="KİTAPLAR" update="aa" action="#{deneme.yapkitap}"/>
+            <p:menuitem value="TÜRLER" update="aa" action="#{deneme.yap}"/>
+            <p:menuitem value="YAZARLAR" update="aa" action="#{deneme.yapyazar}"/>
+
+
+            <p:menuitem value="ÇIKIŞ" styleClass="topcorner" action="#{login.ogrencicikis}" url="index.xhtml"/>
+        </p:megaMenu>
+        <ui:param name="c" id="k" value="#{deneme.adres}"></ui:param>
+        <div align="center">
+            <iframe width="100%" height="900px" src="#{c}"/>
+        </div>
+    </h:form>
+
+
+</h:body>
 </html>

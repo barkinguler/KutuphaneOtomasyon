@@ -8,71 +8,71 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <h:head>
-        <title>Veritabanından Kayıt Çekme</title>
-            <style type="text/css">
-        .order-table{   
-	border-collapse:collapse;
-}
+<h:head>
+    <title>Veritabanından Kayıt Çekme</title>
+    <style type="text/css">
+        .order-table {
+            border-collapse: collapse;
+        }
 
-.order-table-header{
-	text-align:center;
-	background:none repeat scroll 0 0 #E5E5E5;
-	border-bottom:1px solid #BBBBBB;
-	padding:16px;
-}
+        .order-table-header {
+            text-align: center;
+            background: none repeat scroll 0 0 #E5E5E5;
+            border-bottom: 1px solid #BBBBBB;
+            padding: 16px;
+        }
 
-.order-table-odd-row{
-	text-align:center;
-	background:none repeat scroll 0 0 #FFFFFFF;
-	border-top:1px solid #BBBBBB;
-}
+        .order-table-odd-row {
+            text-align: center;
+            background: none repeat scroll 0 0 #FFFFFFF;
+            border-top: 1px solid #BBBBBB;
+        }
 
-.order-table-even-row{
-	text-align:center;
-	background:none repeat scroll 0 0 #F9F9F9;
-	border-top:1px solid #BBBBBB;
-}
-        
+        .order-table-even-row {
+            text-align: center;
+            background: none repeat scroll 0 0 #F9F9F9;
+            border-top: 1px solid #BBBBBB;
+        }
+
     </style>
-    </h:head>
-    <h:body>
-        <h:form>
-            
-            <h:dataTable  value="#{kayitCek.sorguSonucu}" var="kayitCekObjesi" styleClass="order-table"
-    			headerClass="order-table-header"
-    			rowClasses="order-table-odd-row,order-table-even-row">
-                <h:column>
-                    <f:facet name="header">
-                        İşlem no
-                    </f:facet>
-                    <h:outputText value="#{kayitCekObjesi.islemno}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        öğrenci no
-                    </f:facet>
-                    <h:outputText value="#{kayitCekObjesi.ogrno}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        Kitap no
-                    </f:facet>
-                    <h:outputText value="#{kayitCekObjesi.kitapno}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        Alınış tarihi
-                    </f:facet>
-                    <h:outputText value="#{kayitCekObjesi.atarih}"/>
-                </h:column>
-                  <h:column>
-                    <f:facet name="header">
-                        Veriliş tarihi
-                    </f:facet>
-                    <h:outputText value="#{kayitCekObjesi.vtarih}"/>
-                </h:column>
-            </h:dataTable>
-        </h:form>
-    </h:body>
+</h:head>
+<h:body>
+    <h:form>
+
+        <h:dataTable value="#{kayitCek.sorguSonucu}" var="kayitCekObjesi" styleClass="order-table"
+                     headerClass="order-table-header"
+                     rowClasses="order-table-odd-row,order-table-even-row">
+            <h:column>
+                <f:facet name="header">
+                    İşlem no
+                </f:facet>
+                <h:outputText value="#{kayitCekObjesi.islemno}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    öğrenci no
+                </f:facet>
+                <h:outputText value="#{kayitCekObjesi.ogrno}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    Kitap no
+                </f:facet>
+                <h:outputText value="#{kayitCekObjesi.kitapno}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    Alınış tarihi
+                </f:facet>
+                <h:outputText value="#{kayitCekObjesi.atarih}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    Veriliş tarihi
+                </f:facet>
+                <h:outputText value="#{kayitCekObjesi.vtarih}"/>
+            </h:column>
+        </h:dataTable>
+    </h:form>
+</h:body>
 </html>

@@ -5,294 +5,258 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 
-<html xmlns="http://www.w3.org/1999/xhtml" 
-    xmlns:h="http://java.sun.com/jsf/html" 
-    xmlns:f="http://java.sun.com/jsf/core" 
-    xmlns:p="http://primefaces.org/ui"
-    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    
-<h:head></h:head>        
-<h:body> 
-    
-  <style type="text/css">
-  .ui-dialog {
-    width: 100px;
-    height: 100px;
-        
-}
- .topcorner{
-   position:absolute;
-   top:0;
-   right:0;
-  }
-  #myButton .p-commandbutton{
-    background-color: green
-       
-}
-</style>
- <script type="text/javascript">
-    function handleLoginRequest(xhr, status, args) {
-        if(args.validationFailed || !args.loggedIn) {
-            PF('dlg').jq.effect("shake", {times:5}, 100);
-            PF('dlgg').jq.effect("shake", {times:5}, 100);
-            PF('dlggg').jq.effect("shake", {times:5}, 100);
-            PF('dlg1').jq.effect("shake", {times:5}, 100);
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head></h:head>
+<h:body>
+
+    <style type="text/css">
+        .ui-dialog {
+            width: 100px;
+            height: 100px;
+
         }
-        else {
-            PF('dlg1').hide();
-            PF('dlg').hide();
-            PF('dlgg').hide();
-            PF('dlggg').hide();
-            $('#loginLink').fadeOut();
+
+        .topcorner {
+            position: absolute;
+            top: 0;
+            right: 0;
         }
-    }
-</script>
- 
- <div align="center" style="position:fixed;margin-left: 57%;margin-top: 0%;margin-right: 7%;margin-top: 0%">
-<h:form>        
-   <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
-    <p:fieldset legend="Kullanıcı İşlemleri" style="margin-bottom:20px">
-        <h:panelGrid columns="2" cellpadding="5">
-            
-            
-            <f:facet name="footer">
-                  <h:outputLink value="javascript:void(0)" onclick="PF('dlggg').show();" title="login">
-        <p:commandButton style="width:130px" value="Kullanıcı Sil" ajax="true" action="PF('dlg').show();"
-                                  />
-        </h:outputLink>
-                     
-                     
-                     
-            </f:facet>
-            
-            
-                 <f:facet name="footer">
-                  <h:outputLink value="javascript:void(0)" onclick="PF('dlg').show();" title="login">
-        <p:commandButton value="Kullanıcı Ekle" ajax="true" action="PF('dlg').show();"
-                                  />
-        </h:outputLink>
-                     
-                     
-                     
-            </f:facet>
-            
-               <f:facet name="footer">
-                  <h:outputLink value="javascript:void(0)" onclick="PF('dlgg').show();" title="login">
-        <p:commandButton value="Kullanıcı Şifre Değiştir" ajax="true" action="PF('dlg').show();"
-                                  />
-        </h:outputLink>
-                     
-                     
-                     
-            </f:facet>
-            
-            
-            
-              
-    
-        </h:panelGrid>
-    </p:fieldset>
-   
-   
-   
-</h:form>
- </div>
-    
-    
-    
-    
-    
-    
-    
-    <div align="center" style="position:fixed;margin-left: 65%;margin-top: 0%;margin-right: 7%;margin-top: 10%">
-<h:form>        
-   <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
-    <p:fieldset legend="Admin Şifre Güncelleme" style="margin-bottom:20px">
-        <h:panelGrid columns="2" cellpadding="5">
-            
-            
-            <f:facet name="footer">
-                  <h:outputLink value="javascript:void(0)" onclick="PF('dlg1').show();" title="login">
-        <p:commandButton style="width:100px" value="Güncelle" ajax="true" action="PF('dlg1').show();"
-                                  />
-        </h:outputLink>
-                     
-                     
-                     
-            </f:facet>
-            
-            
-                 
-            
-              
-    
-        </h:panelGrid>
-    </p:fieldset>
-   
-   
-   
-</h:form>
- </div>
-    
-    
-    <div align="left" style="position:fixed;margin-left: 0%;margin-top: 0%;margin-right: 45%;">
-              <h:form id="kitap">
-        
-           
-           
-           <p:dataTable var="car" id="growl" value="#{kullaniciCek.sorguSonucu}">
-  <f:facet name="header">
-            KULLANICILAR
-        </f:facet>
-              
-      <p:column headerText="Kullanıcı Ad" filterBy="#{car.kullaniciad}" filterMatchMode="contains">
-        <h:outputText value="#{car.kullaniciad}" />
-    </p:column>         
-      <p:column headerText="Kullanıcı Şifre" filterBy="#{car.kullanicisifre}" filterMatchMode="contains">
-        <h:outputText value="#{car.kullanicisifre}" />
-    </p:column>
-               <p:column headerText="Kullanıcı İsim" filterBy="#{car.isim}" filterMatchMode="contains">
-        <h:outputText value="#{car.isim}" />
-    </p:column>
- 
-   <p:column headerText="Kullanıcı Soyisim" filterBy="#{car.soyisim}" filterMatchMode="contains">
-        <h:outputText value="#{car.soyisim}" />
-    </p:column>
-        <p:column headerText="Pozisyon" >
-        <h:outputText value="#{car.pozisyon}" />
-    </p:column>
- 
- 
-    
-</p:dataTable>
-           
-           
-           
-           
-            
-            
-          
-             
-            
-       
-        </h:form>
-            
-        </div>
-        
-    
-    
-    
-    
-    
-    
-    <h:form>        
-   
-     
-    <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
-     
-    <p:dialog header="Kullanıcı Ekle" widgetVar="dlg" resizable="false" width="390px" height="210px">
-        <h:panelGrid columns="2" cellpadding="5">
-            <h:outputLabel for="username" value="Kullanıcı Adı" />
-            <p:inputText id="username" value="#{login.usernamemusteri}" required="true" label="username" />
-             
-            
-             <h:outputLabel for="password" value="Kullanıcı Şifre" />
-            <p:password  value="#{login.passwordmusteri}" required="true"  />
-            
-            <h:outputLabel for="password" value="Kullanıcı İsim" />
-            <p:password  value="#{login.usernamead}" required="true"  />
-            
-            <h:outputLabel for="password" value="Kullanıcı Soyisim" />
-            <p:password  value="#{login.usernamesoyad}" required="true" label="password" />
-             
-            <f:facet name="footer">
-                <p:commandButton value="Kayıt" update="growl" action="#{login.kullanıcıEkle}"
-                                 oncomplete="handleLoginRequest(xhr, status, args)" />
-            </f:facet>  
-        </h:panelGrid>
-    </p:dialog>    
-</h:form>
-    
-    <div  class="topcorner">
+
+        #myButton .p-commandbutton {
+            background-color: green
+
+        }
+    </style>
+    <script type="text/javascript">
+        function handleLoginRequest(xhr, status, args) {
+            if (args.validationFailed || !args.loggedIn) {
+                PF('dlg').jq.effect("shake", {times: 5}, 100);
+                PF('dlgg').jq.effect("shake", {times: 5}, 100);
+                PF('dlggg').jq.effect("shake", {times: 5}, 100);
+                PF('dlg1').jq.effect("shake", {times: 5}, 100);
+            } else {
+                PF('dlg1').hide();
+                PF('dlg').hide();
+                PF('dlgg').hide();
+                PF('dlggg').hide();
+                $('#loginLink').fadeOut();
+            }
+        }
+    </script>
+
+    <div align="center" style="position:fixed;margin-left: 57%;margin-top: 0%;margin-right: 7%;margin-top: 0%">
         <h:form>
-        <p:growl id="growl2" sticky="true" showDetail="true" life="3000" />
-        <p:commandButton action="#{login.admincikis}" update="growl2" style = "color: white;background: red" value="ÇIKIŞ"  
-                          />
+            <p:growl id="growl" sticky="true" showDetail="true" life="3000"/>
+            <p:fieldset legend="Kullanıcı İşlemleri" style="margin-bottom:20px">
+                <h:panelGrid columns="2" cellpadding="5">
+
+
+                    <f:facet name="footer">
+                        <h:outputLink value="javascript:void(0)" onclick="PF('dlggg').show();" title="login">
+                            <p:commandButton style="width:130px" value="Kullanıcı Sil" ajax="true"
+                                             action="PF('dlg').show();"
+                            />
+                        </h:outputLink>
+
+
+                    </f:facet>
+
+
+                    <f:facet name="footer">
+                        <h:outputLink value="javascript:void(0)" onclick="PF('dlg').show();" title="login">
+                            <p:commandButton value="Kullanıcı Ekle" ajax="true" action="PF('dlg').show();"
+                            />
+                        </h:outputLink>
+
+
+                    </f:facet>
+
+                    <f:facet name="footer">
+                        <h:outputLink value="javascript:void(0)" onclick="PF('dlgg').show();" title="login">
+                            <p:commandButton value="Kullanıcı Şifre Değiştir" ajax="true" action="PF('dlg').show();"
+                            />
+                        </h:outputLink>
+
+
+                    </f:facet>
+
+
+                </h:panelGrid>
+            </p:fieldset>
+
+
         </h:form>
     </div>
-    
-    
-    
-      <h:form>        
-   
-     
-    <p:growl id="growll" sticky="true" showDetail="true" life="3000" />
-     
-    <p:dialog header="Kullanıcı Şifre Değiştirme" widgetVar="dlgg" resizable="false" width="390px" height="140px">
-        <h:panelGrid columns="2" cellpadding="5">
-            <h:outputLabel for="username" value="Kullanıcı Adı" />
-            <p:inputText id="username" value="#{login.usernamemusteri}" required="true" label="username" />
-             
-            
-            
-            <h:outputLabel for="password" value="Şifre" />
-            <p:password id="passwordd" value="#{login.passwordmusteri}" required="true" label="password" />
-             
-            <f:facet name="footer">
-                <p:commandButton value="Kayıt" update="growll" action="#{login.kullanıcıGüncelleme}"
-                                 oncomplete="handleLoginRequest(xhr, status, args)" />
-            </f:facet>  
-        </h:panelGrid>
-    </p:dialog>    
-</h:form>
-    
-   
-        
-        <h:form>       
-   
-     
-    <p:growl id="growlll" sticky="true" showDetail="true" life="3000" />
-     
-    <p:dialog header="Kullanıcı Sil" widgetVar="dlggg" resizable="false" width="390px" height="100px">
-        <h:panelGrid columns="2" cellpadding="5">
-            <h:outputLabel for="username" value="Kullanıcı Adı" />
-            <p:inputText id="username" value="#{login.usernamemusteri}" required="true" label="username" />
-                
-            <f:facet name="footer">
-                <p:commandButton value="Sil" update="growlll" action="#{login.kullanıcıSil}"
-                                 oncomplete="handleLoginRequest(xhr, status, args)" 
-                                  
-                                 />
-            </f:facet>  
-             
-        </h:panelGrid>
-    </p:dialog>    
-</h:form>
-    
-  
-    <h:form>        
-   
-     
-    <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
-     
-    <p:dialog header="Admin Şifre Değiştirme" widgetVar="dlg1" resizable="false" width="350px" height="90px" >
-        <h:panelGrid columns="2" cellpadding="5">
-            <h:outputLabel for="username" value="Yeni Şifre" />
-            <p:inputText id="username" value="#{login.password}" required="true" label="username" />
-             
-            
-            
-            <f:facet name="footer">
-                <p:commandButton value="Değiştir" update="growl" action="#{login.adminŞifreDeğiştir}"
-                                 oncomplete="handleLoginRequest(xhr, status, args)" />
-            </f:facet>  
-        </h:panelGrid>
-    </p:dialog>    
-</h:form>
-    
-    
-    
-    
-    
+
+
+    <div align="center" style="position:fixed;margin-left: 65%;margin-top: 0%;margin-right: 7%;margin-top: 10%">
+        <h:form>
+            <p:growl id="growl" sticky="true" showDetail="true" life="3000"/>
+            <p:fieldset legend="Admin Şifre Güncelleme" style="margin-bottom:20px">
+                <h:panelGrid columns="2" cellpadding="5">
+
+
+                    <f:facet name="footer">
+                        <h:outputLink value="javascript:void(0)" onclick="PF('dlg1').show();" title="login">
+                            <p:commandButton style="width:100px" value="Güncelle" ajax="true"
+                                             action="PF('dlg1').show();"
+                            />
+                        </h:outputLink>
+
+
+                    </f:facet>
+
+
+                </h:panelGrid>
+            </p:fieldset>
+
+
+        </h:form>
+    </div>
+
+
+    <div align="left" style="position:fixed;margin-left: 0%;margin-top: 0%;margin-right: 45%;">
+        <h:form id="kitap">
+
+
+            <p:dataTable var="car" id="growl" value="#{kullaniciCek.sorguSonucu}">
+                <f:facet name="header">
+                    KULLANICILAR
+                </f:facet>
+
+                <p:column headerText="Kullanıcı Ad" filterBy="#{car.kullaniciad}" filterMatchMode="contains">
+                    <h:outputText value="#{car.kullaniciad}"/>
+                </p:column>
+                <p:column headerText="Kullanıcı Şifre" filterBy="#{car.kullanicisifre}" filterMatchMode="contains">
+                    <h:outputText value="#{car.kullanicisifre}"/>
+                </p:column>
+                <p:column headerText="Kullanıcı İsim" filterBy="#{car.isim}" filterMatchMode="contains">
+                    <h:outputText value="#{car.isim}"/>
+                </p:column>
+
+                <p:column headerText="Kullanıcı Soyisim" filterBy="#{car.soyisim}" filterMatchMode="contains">
+                    <h:outputText value="#{car.soyisim}"/>
+                </p:column>
+                <p:column headerText="Pozisyon">
+                    <h:outputText value="#{car.pozisyon}"/>
+                </p:column>
+
+
+            </p:dataTable>
+
+
+        </h:form>
+
+    </div>
+
+
+    <h:form>
+
+
+        <p:growl id="growl" sticky="true" showDetail="true" life="3000"/>
+
+        <p:dialog header="Kullanıcı Ekle" widgetVar="dlg" resizable="false" width="390px" height="210px">
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel for="username" value="Kullanıcı Adı"/>
+                <p:inputText id="username" value="#{login.usernamemusteri}" required="true" label="username"/>
+
+
+                <h:outputLabel for="password" value="Kullanıcı Şifre"/>
+                <p:password value="#{login.passwordmusteri}" required="true"/>
+
+                <h:outputLabel for="password" value="Kullanıcı İsim"/>
+                <p:password value="#{login.usernamead}" required="true"/>
+
+                <h:outputLabel for="password" value="Kullanıcı Soyisim"/>
+                <p:password value="#{login.usernamesoyad}" required="true" label="password"/>
+
+                <f:facet name="footer">
+                    <p:commandButton value="Kayıt" update="growl" action="#{login.kullanıcıEkle}"
+                                     oncomplete="handleLoginRequest(xhr, status, args)"/>
+                </f:facet>
+            </h:panelGrid>
+        </p:dialog>
+    </h:form>
+
+    <div class="topcorner">
+        <h:form>
+            <p:growl id="growl2" sticky="true" showDetail="true" life="3000"/>
+            <p:commandButton action="#{login.admincikis}" update="growl2" style="color: white;background: red"
+                             value="ÇIKIŞ"
+            />
+        </h:form>
+    </div>
+
+
+    <h:form>
+
+
+        <p:growl id="growll" sticky="true" showDetail="true" life="3000"/>
+
+        <p:dialog header="Kullanıcı Şifre Değiştirme" widgetVar="dlgg" resizable="false" width="390px" height="140px">
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel for="username" value="Kullanıcı Adı"/>
+                <p:inputText id="username" value="#{login.usernamemusteri}" required="true" label="username"/>
+
+
+                <h:outputLabel for="password" value="Şifre"/>
+                <p:password id="passwordd" value="#{login.passwordmusteri}" required="true" label="password"/>
+
+                <f:facet name="footer">
+                    <p:commandButton value="Kayıt" update="growll" action="#{login.kullanıcıGüncelleme}"
+                                     oncomplete="handleLoginRequest(xhr, status, args)"/>
+                </f:facet>
+            </h:panelGrid>
+        </p:dialog>
+    </h:form>
+
+
+    <h:form>
+
+
+        <p:growl id="growlll" sticky="true" showDetail="true" life="3000"/>
+
+        <p:dialog header="Kullanıcı Sil" widgetVar="dlggg" resizable="false" width="390px" height="100px">
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel for="username" value="Kullanıcı Adı"/>
+                <p:inputText id="username" value="#{login.usernamemusteri}" required="true" label="username"/>
+
+                <f:facet name="footer">
+                    <p:commandButton value="Sil" update="growlll" action="#{login.kullanıcıSil}"
+                                     oncomplete="handleLoginRequest(xhr, status, args)"
+
+                    />
+                </f:facet>
+
+            </h:panelGrid>
+        </p:dialog>
+    </h:form>
+
+
+    <h:form>
+
+
+        <p:growl id="growl" sticky="true" showDetail="true" life="3000"/>
+
+        <p:dialog header="Admin Şifre Değiştirme" widgetVar="dlg1" resizable="false" width="350px" height="90px">
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel for="username" value="Yeni Şifre"/>
+                <p:inputText id="username" value="#{login.password}" required="true" label="username"/>
+
+
+                <f:facet name="footer">
+                    <p:commandButton value="Değiştir" update="growl" action="#{login.adminŞifreDeğiştir}"
+                                     oncomplete="handleLoginRequest(xhr, status, args)"/>
+                </f:facet>
+            </h:panelGrid>
+        </p:dialog>
+    </h:form>
+
+
 </h:body>
 </html>

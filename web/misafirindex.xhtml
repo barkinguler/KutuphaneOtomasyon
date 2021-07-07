@@ -5,190 +5,178 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 
-<html xmlns="http://www.w3.org/1999/xhtml" 
-    xmlns:h="http://java.sun.com/jsf/html" 
-    xmlns:f="http://java.sun.com/jsf/core" 
-    xmlns:p="http://primefaces.org/ui"
-    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    
-<h:head></h:head>        
-<h:body> 
-    
-  <style type="text/css">
- 
- .topcorner{
-   position:absolute;
-   top:0;
-   right:0;
-  }
-  #myButton .p-commandbutton{
-    background-color: green
-       
-}
-</style>
- <script type="text/javascript">
-    function handleLoginRequest(xhr, status, args) {
-        if(args.validationFailed || !args.loggedIn) {
-            PF('dlg').jq.effect("shake", {times:5}, 100);
-            PF('dlgg').jq.effect("shake", {times:5}, 100);
-            PF('dlggg').jq.effect("shake", {times:5}, 100);
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head></h:head>
+<h:body>
+
+    <style type="text/css">
+
+        .topcorner {
+            position: absolute;
+            top: 0;
+            right: 0;
         }
-        else {
-            PF('dlg').hide();
-            PF('dlgg').hide();
-            PF('dlggg').hide();
-            $('#loginLink').fadeOut();
+
+        #myButton .p-commandbutton {
+            background-color: green
+
         }
-    }
-</script>
- 
- <div align="center" style="position:fixed;margin-left: 37%;margin-top: 0%;margin-right: 27%;margin-top: 10%">
-<h:form>        
-   <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
-    <p:fieldset legend="Öğrenci Giriş" style="margin-bottom:20px">
-        <h:panelGrid columns="2" cellpadding="5">
-            
-            
-            <f:facet name="footer">
-                  <h:outputLink value="javascript:void(0)" onclick="PF('dlggg').show();" title="login">
-        <p:commandButton style="width:100px" value="Giriş" ajax="true" action="PF('dlg').show();"
-                                  />
-        </h:outputLink>
-                     
-                     
-                     
-            </f:facet>
-            
-            
-                 <f:facet name="footer">
-                  <h:outputLink value="javascript:void(0)" onclick="PF('dlg').show();" title="login">
-        <p:commandButton value="Kayıt Ol" ajax="true" action="PF('dlg').show();"
-                                  />
-        </h:outputLink>
-                     
-                     
-                     
-            </f:facet>
-            
-               <f:facet name="footer">
-                  <h:outputLink value="javascript:void(0)" onclick="PF('dlgg').show();" title="login">
-        <p:commandButton value="Şifre Değiştir" ajax="true" action="PF('dlg').show();"
-                                  />
-        </h:outputLink>
-                     
-                     
-                     
-            </f:facet>
-            
-              
-    
-        </h:panelGrid>
-    </p:fieldset>
-   
-   
-   
-</h:form>
- </div>
-    
-    
-    <h:form>        
-   
-     
-    <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
-     
-    <p:dialog header="Kayıt Ol" widgetVar="dlg" resizable="false">
-        <h:panelGrid columns="2" cellpadding="5">
-            <h:outputLabel for="username" value="Kullanıcı Adı" />
-            <p:inputText id="username" value="#{login.usernamemusteri}" required="true" label="username" />
-             
-            <h:outputLabel for="password" value="Öğrenci No" />
-            <p:password id="password" value="#{login.ogrno}" required="true"  />
-            
-            <h:outputLabel for="password" value="Şifre" />
-            <p:password id="passwordd" value="#{login.passwordmusteri}" required="true" label="password" />
-             
-            <f:facet name="footer">
-                <p:commandButton value="Kayıt" update="growl" action="#{login.kayitmusteri}"
-                                 oncomplete="handleLoginRequest(xhr, status, args)" />
-            </f:facet>  
-        </h:panelGrid>
-    </p:dialog>    
-</h:form>
-    
-    <div  class="topcorner">
+    </style>
+    <script type="text/javascript">
+        function handleLoginRequest(xhr, status, args) {
+            if (args.validationFailed || !args.loggedIn) {
+                PF('dlg').jq.effect("shake", {times: 5}, 100);
+                PF('dlgg').jq.effect("shake", {times: 5}, 100);
+                PF('dlggg').jq.effect("shake", {times: 5}, 100);
+            } else {
+                PF('dlg').hide();
+                PF('dlgg').hide();
+                PF('dlggg').hide();
+                $('#loginLink').fadeOut();
+            }
+        }
+    </script>
+
+    <div align="center" style="position:fixed;margin-left: 37%;margin-top: 0%;margin-right: 27%;margin-top: 10%">
         <h:form>
-        
-        <p:commandButton style = "color: white;background: red" value="ÇIKIŞ"  action="index.xhtml"
-                          />
+            <p:growl id="growl" sticky="true" showDetail="true" life="3000"/>
+            <p:fieldset legend="Öğrenci Giriş" style="margin-bottom:20px">
+                <h:panelGrid columns="2" cellpadding="5">
+
+
+                    <f:facet name="footer">
+                        <h:outputLink value="javascript:void(0)" onclick="PF('dlggg').show();" title="login">
+                            <p:commandButton style="width:100px" value="Giriş" ajax="true" action="PF('dlg').show();"
+                            />
+                        </h:outputLink>
+
+
+                    </f:facet>
+
+
+                    <f:facet name="footer">
+                        <h:outputLink value="javascript:void(0)" onclick="PF('dlg').show();" title="login">
+                            <p:commandButton value="Kayıt Ol" ajax="true" action="PF('dlg').show();"
+                            />
+                        </h:outputLink>
+
+
+                    </f:facet>
+
+                    <f:facet name="footer">
+                        <h:outputLink value="javascript:void(0)" onclick="PF('dlgg').show();" title="login">
+                            <p:commandButton value="Şifre Değiştir" ajax="true" action="PF('dlg').show();"
+                            />
+                        </h:outputLink>
+
+
+                    </f:facet>
+
+
+                </h:panelGrid>
+            </p:fieldset>
+
+
         </h:form>
     </div>
-    
-    
-    
-      <h:form>        
-   
-     
-    <p:growl id="growll" sticky="true" showDetail="true" life="3000" />
-     
-    <p:dialog header="Şifre Güncelleme" widgetVar="dlgg" resizable="false">
-        <h:panelGrid columns="2" cellpadding="5">
-            <h:outputLabel for="username" value="Kullanıcı Adı" />
-            <p:inputText id="username" value="#{login.usernamemusteri}" required="true" label="username" />
-             
-            <h:outputLabel for="password" value="Yeni Şifre" />
-            <p:password id="password" value="#{login.newsifre}" required="true"  />
-            
-            <h:outputLabel for="password" value="Eski Şifre" />
-            <p:password id="passwordd" value="#{login.passwordmusteri}" required="true" label="password" />
-             
-            <f:facet name="footer">
-                <p:commandButton value="Kayıt" update="growll" action="#{login.musterisifredegis}"
-                                 oncomplete="handleLoginRequest(xhr, status, args)" />
-            </f:facet>  
-        </h:panelGrid>
-    </p:dialog>    
-</h:form>
-    
-    <div  class="topcorner">
+
+
+    <h:form>
+
+
+        <p:growl id="growl" sticky="true" showDetail="true" life="3000"/>
+
+        <p:dialog header="Kayıt Ol" widgetVar="dlg" resizable="false">
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel for="username" value="Kullanıcı Adı"/>
+                <p:inputText id="username" value="#{login.usernamemusteri}" required="true" label="username"/>
+
+                <h:outputLabel for="password" value="Öğrenci No"/>
+                <p:password id="password" value="#{login.ogrno}" required="true"/>
+
+                <h:outputLabel for="password" value="Şifre"/>
+                <p:password id="passwordd" value="#{login.passwordmusteri}" required="true" label="password"/>
+
+                <f:facet name="footer">
+                    <p:commandButton value="Kayıt" update="growl" action="#{login.kayitmusteri}"
+                                     oncomplete="handleLoginRequest(xhr, status, args)"/>
+                </f:facet>
+            </h:panelGrid>
+        </p:dialog>
+    </h:form>
+
+    <div class="topcorner">
         <h:form>
-        
-        <p:commandButton style = "color: white;background: red" value="ÇIKIŞ"  action="index.xhtml"
-                          />
+
+            <p:commandButton style="color: white;background: red" value="ÇIKIŞ" action="index.xhtml"
+            />
         </h:form>
-        
-        </div> 
-        
-        <h:form>       
-   
-     
-    <p:growl id="growlll" sticky="true" showDetail="true" life="3000" />
-     
-    <p:dialog header="Giriş Yap" widgetVar="dlggg" resizable="false">
-        <h:panelGrid columns="2" cellpadding="5">
-            <h:outputLabel for="username" value="Kullanıcı Adı" />
-            <p:inputText id="username" value="#{login.usernamemusteri}"  label="username" />
-           
-            <h:outputLabel for="password" value="Şifre" />
-            <p:password id="password" value="#{login.passwordmusteri}"  label="password" />
-             
-           
-           
-                
-            
-            
-            <f:facet name="footer">
-                <p:commandButton value="Giriş" update="growlll" action="#{login.karsilastirmusteri}"
-                                 oncomplete="handleLoginRequest(xhr, status, args)" 
-                                  
-                                 />
-            </f:facet>  
-             
-        </h:panelGrid>
-    </p:dialog>    
-</h:form>
-    
-   
-    
-    
+    </div>
+
+
+    <h:form>
+
+
+        <p:growl id="growll" sticky="true" showDetail="true" life="3000"/>
+
+        <p:dialog header="Şifre Güncelleme" widgetVar="dlgg" resizable="false">
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel for="username" value="Kullanıcı Adı"/>
+                <p:inputText id="username" value="#{login.usernamemusteri}" required="true" label="username"/>
+
+                <h:outputLabel for="password" value="Yeni Şifre"/>
+                <p:password id="password" value="#{login.newsifre}" required="true"/>
+
+                <h:outputLabel for="password" value="Eski Şifre"/>
+                <p:password id="passwordd" value="#{login.passwordmusteri}" required="true" label="password"/>
+
+                <f:facet name="footer">
+                    <p:commandButton value="Kayıt" update="growll" action="#{login.musterisifredegis}"
+                                     oncomplete="handleLoginRequest(xhr, status, args)"/>
+                </f:facet>
+            </h:panelGrid>
+        </p:dialog>
+    </h:form>
+
+    <div class="topcorner">
+        <h:form>
+
+            <p:commandButton style="color: white;background: red" value="ÇIKIŞ" action="index.xhtml"
+            />
+        </h:form>
+
+    </div>
+
+    <h:form>
+
+
+        <p:growl id="growlll" sticky="true" showDetail="true" life="3000"/>
+
+        <p:dialog header="Giriş Yap" widgetVar="dlggg" resizable="false">
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel for="username" value="Kullanıcı Adı"/>
+                <p:inputText id="username" value="#{login.usernamemusteri}" label="username"/>
+
+                <h:outputLabel for="password" value="Şifre"/>
+                <p:password id="password" value="#{login.passwordmusteri}" label="password"/>
+
+
+                <f:facet name="footer">
+                    <p:commandButton value="Giriş" update="growlll" action="#{login.karsilastirmusteri}"
+                                     oncomplete="handleLoginRequest(xhr, status, args)"
+
+                    />
+                </f:facet>
+
+            </h:panelGrid>
+        </p:dialog>
+    </h:form>
+
+
 </h:body>
 </html>

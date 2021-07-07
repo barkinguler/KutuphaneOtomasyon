@@ -10,118 +10,107 @@ and open the template in the editor.
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    <h:head>
-        <title>Veritabanından Kayıt Çekme</title>
-     
-        
-        <style type="text/css">
-        .order-table{   
-	border-collapse:collapse;
-}
+<h:head>
+    <title>Veritabanından Kayıt Çekme</title>
 
-.order-table-header{
-	text-align:center;
-	background:none repeat scroll 0 0 #E5E5E5;
-	border-bottom:1px solid #BBBBBB;
-	padding:16px;
-}
 
-.order-table-odd-row{
-	text-align:center;
-	background:none repeat scroll 0 0 #FFFFFF;
-	border-top:1px solid #BBBBBB;
-}
+    <style type="text/css">
+        .order-table {
+            border-collapse: collapse;
+        }
 
-.order-table-even-row{
-	text-align:center;
-	background:none repeat scroll 0 0 #F9F9F9;
-	border-top:1px solid #BBBBBB;
-}
-        
+        .order-table-header {
+            text-align: center;
+            background: none repeat scroll 0 0 #E5E5E5;
+            border-bottom: 1px solid #BBBBBB;
+            padding: 16px;
+        }
+
+        .order-table-odd-row {
+            text-align: center;
+            background: none repeat scroll 0 0 #FFFFFF;
+            border-top: 1px solid #BBBBBB;
+        }
+
+        .order-table-even-row {
+            text-align: center;
+            background: none repeat scroll 0 0 #F9F9F9;
+            border-top: 1px solid #BBBBBB;
+        }
+
     </style>
-    </h:head>
-    <h:body>
-        
-    
-           
-        
-        
-        
-        <style type="text/css">
-    .value {
-        font-weight: bold;
-    }
-     
-    .ui-datatable {
-        margin-bottom: 25px
-    }
-     
-    .ui-datatable .ui-datatable-footer {
-        text-align:left;
-    }
-     
-    .ui-datalist ul {
-        padding: 0 0 0 10px;
-        margin: 5px 0;
-    }
-     
-    .ui-datatable .ui-button-icon-only .ui-button-text {
-        padding: 0;
-        line-height: 1.2;
-    }
-    .ui-datatable-empty-message {
-    display: none;
-}
-</style>
- 
-     
-        
-        
-        
-        
-        
- <div align="center" style="position:fixed;margin-left: 25%;margin-top: 0%;margin-right: 25%;">
+</h:head>
+<h:body>
 
-<h:form id="form">
-    <p:growl id="msgs" showDetail="true"  />
- 
-    <p:dataTable id="basicDT" var="car" value="#{islemCek.sorguSonucumusteri}">
-        
-        <f:facet name="header">
-            İşlemler
-        </f:facet>
-        
-        
-        
- 
-        <p:column filterBy="#{car.ogrno}" headerText="Öğrenci No"  filterMatchMode="contains" sortBy="#{car.ogrno}">
-            <h:outputText value="#{car.ogrno}" />
-        </p:column>
- 
-          <p:column filterBy="#{car.kitapadi}" headerText="Kitap Ad"  filterMatchMode="contains" sortBy="#{car.kitapadi}">
-            <h:outputText value="#{car.kitapadi}" />
-        </p:column>
-        
-       <p:column filterBy="#{car.atarih}" headerText="Alınış Tarih"  filterMatchMode="contains" sortBy="#{car.atarih}">
-            <h:outputText value="#{car.atarih}" />
-        </p:column>
-        
-       <p:column filterBy="#{car.vtarih}" headerText="Veriliş Tarih"  filterMatchMode="contains" sortBy="#{car.vtarih}">
-            <h:outputText value="#{car.vtarih}" />
-        </p:column>
-        <p:column filterBy="#{car.teslim}" headerText="Teslim"  filterMatchMode="contains">
-            <h:outputText value="#{car.teslim}" />
-        </p:column>
-        
-    </p:dataTable>
-    
-    
-    
-   
-     
- 
-    
-    </h:form>
- </div>   
-    </h:body>
+
+    <style type="text/css">
+        .value {
+            font-weight: bold;
+        }
+
+        .ui-datatable {
+            margin-bottom: 25px
+        }
+
+        .ui-datatable .ui-datatable-footer {
+            text-align: left;
+        }
+
+        .ui-datalist ul {
+            padding: 0 0 0 10px;
+            margin: 5px 0;
+        }
+
+        .ui-datatable .ui-button-icon-only .ui-button-text {
+            padding: 0;
+            line-height: 1.2;
+        }
+
+        .ui-datatable-empty-message {
+            display: none;
+        }
+    </style>
+
+
+    <div align="center" style="position:fixed;margin-left: 25%;margin-top: 0%;margin-right: 25%;">
+
+        <h:form id="form">
+            <p:growl id="msgs" showDetail="true"/>
+
+            <p:dataTable id="basicDT" var="car" value="#{islemCek.sorguSonucumusteri}">
+
+                <f:facet name="header">
+                    İşlemler
+                </f:facet>
+
+
+                <p:column filterBy="#{car.ogrno}" headerText="Öğrenci No" filterMatchMode="contains"
+                          sortBy="#{car.ogrno}">
+                    <h:outputText value="#{car.ogrno}"/>
+                </p:column>
+
+                <p:column filterBy="#{car.kitapadi}" headerText="Kitap Ad" filterMatchMode="contains"
+                          sortBy="#{car.kitapadi}">
+                    <h:outputText value="#{car.kitapadi}"/>
+                </p:column>
+
+                <p:column filterBy="#{car.atarih}" headerText="Alınış Tarih" filterMatchMode="contains"
+                          sortBy="#{car.atarih}">
+                    <h:outputText value="#{car.atarih}"/>
+                </p:column>
+
+                <p:column filterBy="#{car.vtarih}" headerText="Veriliş Tarih" filterMatchMode="contains"
+                          sortBy="#{car.vtarih}">
+                    <h:outputText value="#{car.vtarih}"/>
+                </p:column>
+                <p:column filterBy="#{car.teslim}" headerText="Teslim" filterMatchMode="contains">
+                    <h:outputText value="#{car.teslim}"/>
+                </p:column>
+
+            </p:dataTable>
+
+
+        </h:form>
+    </div>
+</h:body>
 </html>

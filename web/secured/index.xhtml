@@ -9,24 +9,23 @@ and open the template in the editor.
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </h:head>
-    <h:body>
-        <h:form>
+<h:head>
+    <title>TODO supply a title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</h:head>
+<h:body>
+    <h:form>
         <h:panelGrid columns="2">
             <h:outputText value="Kullanıcı adı giriniz:"/>
             <h:inputText value="#{login.username}"/>
             <h:outputText value="Öğrenci no giriniz"/>
             <h:inputText value="#{login.password}"/>
-           
-            <h:commandButton value="GÖNDER" action="#{login.doLogin()}"/> 
-           
-                
-            
+
+            <h:commandButton value="GÖNDER" action="#{login.doLogin()}"/>
+
+
         </h:panelGrid>
-        </h:form>
-        
-    </h:body>
+    </h:form>
+
+</h:body>
 </html>
