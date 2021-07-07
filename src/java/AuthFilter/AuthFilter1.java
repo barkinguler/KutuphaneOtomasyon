@@ -7,9 +7,9 @@ package AuthFilter;
  */
 
 /**
- *
  * @author brkn_
  */
+
 import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -21,40 +21,39 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
- 
-@WebFilter( urlPatterns = {"/kullaniciindex.xhtml","/Ogrenci/*","/kitap/*","/Yazar/*","/islem/*","/liste/*","/tur/*"})
+
+@WebFilter(urlPatterns = {"/kullaniciindex.xhtml", "/Ogrenci/*", "/kitap/*", "/Yazar/*", "/islem/*", "/liste/*", "/tur/*"})
 
 public class AuthFilter1 implements Filter {
-     
+
     public AuthFilter1() {
     }
- 
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-         
+
     }
- 
+
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-         try {
+        try {
             HttpServletRequest req = (HttpServletRequest) request;
             HttpServletResponse res = (HttpServletResponse) response;
             HttpSession ses = req.getSession(false);
             String reqURI = req.getRequestURI();
-            if ( (ses != null && ses.getAttribute("username1") != null)
-                                        )
-                   chain.doFilter(request, response);
+            if ((ses != null && ses.getAttribute("username1") != null)
+            )
+                chain.doFilter(request, response);
             else
-                   res.sendRedirect(req.getContextPath() + "/index.xhtml"); 
-                   
-      }
-     catch(Throwable t) {
-         System.out.println( t.getMessage());
-     }
+                res.sendRedirect(req.getContextPath() + "/index.xhtml");
+
+        } catch (Throwable t) {
+            System.out.println(t.getMessage());
+        }
     } //doFilter
- 
+
     @Override
     public void destroy() {
-         
+
     }
 }

@@ -18,13 +18,12 @@ import javax.swing.JOptionPane;
  */
 
 /**
- *
  * @author brkn_
  */
 @ManagedBean
 @RequestScoped
-public class ogrCek extends Kutuphanemanaged{
-    List<Kutuphanemanaged> sorguSonucu=null;
+public class ogrCek extends Kutuphanemanaged {
+    List<Kutuphanemanaged> sorguSonucu = null;
 
     public List<Kutuphanemanaged> getSorguSonucu() {
         return sorguSonucu;
@@ -33,37 +32,37 @@ public class ogrCek extends Kutuphanemanaged{
     public void setSorguSonucu(List<Kutuphanemanaged> sorguSonucu) {
         this.sorguSonucu = sorguSonucu;
     }
-    @PostConstruct 
-    public void turkayit()
-    {
-        
-        Connection con=null;
-        PreparedStatement preparedStatement=null;
-        ResultSet resultSet=null;
-        sorguSonucu=new ArrayList<>();
+
+    @PostConstruct
+    public void turkayit() {
+
+        Connection con = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        sorguSonucu = new ArrayList<>();
         try {
-           con=Baglan.getcon();
-           
-            preparedStatement=con.prepareStatement("select OGRNO,OGRAD,OGRSOYAD FROM OGRENCİ");
-           
-             
-            resultSet=preparedStatement.executeQuery();
-            
+            con = Baglan.getcon();
+
+            preparedStatement = con.prepareStatement("select OGRNO,OGRAD,OGRSOYAD FROM OGRENCİ");
+
+
+            resultSet = preparedStatement.executeQuery();
+
             while (resultSet.next()) {
-                Kutuphanemanaged kisiler=new Kutuphanemanaged();
+                Kutuphanemanaged kisiler = new Kutuphanemanaged();
                 kisiler.setOgrno(resultSet.getInt("OGRNO"));
                 kisiler.setOgrad(resultSet.getString("OGRAD"));
                 kisiler.setOgrsoyad(resultSet.getString("OGRSOYAD"));
                 sorguSonucu.add(kisiler);
             }
         } catch (Exception e) {
-          
-        }
-        finally{
+
+        } finally {
             try {
                 con.close();
                 preparedStatement.close();
             } catch (Exception e) {
             }
-        }}
+        }
+    }
 }

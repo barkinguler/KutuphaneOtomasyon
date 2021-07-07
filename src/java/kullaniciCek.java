@@ -1,6 +1,7 @@
 
 import Bilgiçek.Baglan;
 import Bilgiçek.Kutuphanemanaged;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,59 +19,54 @@ import javax.swing.JOptionPane;
  */
 
 /**
- *
  * @author brkn_
  */
 @ManagedBean
 @RequestScoped
 public class kullaniciCek {
-    
-     List<Kutuphanemanaged> sorguSonucu=null;
-     
-     public List<Kutuphanemanaged> getSorguSonucu() {
+
+    List<Kutuphanemanaged> sorguSonucu = null;
+
+    public List<Kutuphanemanaged> getSorguSonucu() {
         return sorguSonucu;
     }
 
     public void setSorguSonucu(List<Kutuphanemanaged> sorguSonucu) {
         this.sorguSonucu = sorguSonucu;
     }
-     
-     
-    @PostConstruct 
-        public void kullaniciCek()
-    {
-        
-        Connection con=null;
-        PreparedStatement preparedStatement=null;
-        ResultSet resultSet=null;
-        sorguSonucu=new ArrayList<>();
+
+
+    @PostConstruct
+    public void kullaniciCek() {
+
+        Connection con = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        sorguSonucu = new ArrayList<>();
         try {
-           con=Baglan.getconadmin();
-           
-            preparedStatement=con.prepareStatement("SELECT * FROM BILGILER");
-         
-            
-            resultSet=preparedStatement.executeQuery();
-            
+            con = Baglan.getconadmin();
+
+            preparedStatement = con.prepareStatement("SELECT * FROM BILGILER");
+
+
+            resultSet = preparedStatement.executeQuery();
+
             while (resultSet.next()) {
-                Kutuphanemanaged kisiler=new Kutuphanemanaged();
+                Kutuphanemanaged kisiler = new Kutuphanemanaged();
                 kisiler.setKullaniciad(resultSet.getString("KULLANICIAD"));
-                
+
                 kisiler.setKullanicisifre(resultSet.getString("KULLANICISIFRE"));
                 kisiler.setIsim(resultSet.getString("ISIM"));
                 kisiler.setSoyisim(resultSet.getString("SOYISIM"));
                 kisiler.setPozisyon(resultSet.getString("POZİSYON"));
-                
-                
-                
-                
+
+
                 sorguSonucu.add(kisiler);
-                
+
             }
         } catch (Exception e) {
-           JOptionPane.showMessageDialog(null,e);
-        }
-        finally{
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
             try {
                 con.close();
                 preparedStatement.close();
@@ -78,14 +74,11 @@ public class kullaniciCek {
             }
         }
     }
-   
-        
-        
-    public void islemgecmis(){
-    
-    
-    
-    
-    }    
-        
+
+
+    public void islemgecmis() {
+
+
+    }
+
 }

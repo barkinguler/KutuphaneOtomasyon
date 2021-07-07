@@ -12,17 +12,15 @@ import javax.swing.JOptionPane;
  */
 
 /**
- *
  * @author brkn_
  */
 public class Baglan {
     public static Connection getcon() {
-        Connection con1=null;
-        
+        Connection con1 = null;
+
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
-             con1=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","brkn123","asdqwe123");
-            //con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/stok?useUnicode=true&characterEncoding=utf8&useUnicode=true&characterEncoding=utf8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "1234");
+            con1 = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "brkn123", "asdqwe123");
 
 
             if (con1 != null) System.out.print("calıstı");
@@ -32,16 +30,15 @@ public class Baglan {
 
             JOptionPane.showMessageDialog(null, e);
         }
-return con1;
+        return con1;
     }
-    
+
     public static Connection getconmusteri() {
-        Connection con1=null;
-        
+        Connection con1 = null;
+
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
-             con1=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","MÜŞTERİ","asdqwe123");
-            //con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/stok?useUnicode=true&characterEncoding=utf8&useUnicode=true&characterEncoding=utf8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "1234");
+            con1 = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "MÜŞTERİ", "asdqwe123");
 
 
             if (con1 != null) System.out.print("calıstı");
@@ -51,16 +48,15 @@ return con1;
 
             JOptionPane.showMessageDialog(null, e);
         }
-return con1;
+        return con1;
     }
-    
-     public static Connection getconadmin() {
-        Connection con1=null;
-        
+
+    public static Connection getconadmin() {
+        Connection con1 = null;
+
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
-             con1=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","admin","123");
-            //con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/stok?useUnicode=true&characterEncoding=utf8&useUnicode=true&characterEncoding=utf8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "1234");
+            con1 = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "admin", "123");
 
 
             if (con1 != null) System.out.print("calıstı");
@@ -70,9 +66,8 @@ return con1;
 
             JOptionPane.showMessageDialog(null, e);
         }
-return con1;
+        return con1;
     }
-    
-    
-    
+
+
 }
